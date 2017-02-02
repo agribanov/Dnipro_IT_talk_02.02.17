@@ -17,5 +17,6 @@ $(() => {
         .map(e => e.target.value)
         .filter(text => text.length > 2)
         .debounceTime(300)
+        .switchMap(getUsers)
         .subscribe((data) => console.log(data));
 })
