@@ -10,8 +10,18 @@ function errorCallback(err) {
     console.log('Error: ', err);
 }
 
-function startReceivingData(next, error) {
-    fetch('http://google.com').then(next, error);
+function startReceivingData(next, error, complete) {
+    let counts = 0;
+    const intervalId = setInterval(() => {
+        counts++;
+
+        next(counts);
+        
+        if (counts >= 5) {
+            clearInterval(intervalId);
+            complete();
+        }
+    }, 300);
 }
 
 startReceivingData(nextCallback, errorCallback, completeCallback);
