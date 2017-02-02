@@ -8,7 +8,9 @@ $(() => {
         $greenLed.toggleClass('on');
     });
     
-    interval$.subscribe(() => {
+    interval$
+        .delay(200)    
+        .subscribe(() => {
         $redLed.toggleClass('on');
     });
     
