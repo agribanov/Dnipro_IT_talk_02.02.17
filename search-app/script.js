@@ -5,5 +5,7 @@ $(() => {
     const searchChange$ =
         Rx.Observable.fromEvent($search, 'input');
     
-    searchChange$.subscribe((data) => console.log(data));
+    searchChange$
+        .map(e => e.target.value)    
+        .subscribe((data) => console.log(data));
 })
