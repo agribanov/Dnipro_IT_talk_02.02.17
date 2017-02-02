@@ -10,7 +10,7 @@ const observer = {
     }
 }
 
-const observable = {
+const intervalObservable = {
     subscribe: function subscribe(obs) {
         let counts = 0;
         const intervalId = setInterval(() => {
@@ -27,4 +27,12 @@ const observable = {
 
 }
 
-observable.subscribe(observer);
+const arrayObservable = {
+    subscribe: function subscribe(obs) {
+        [1, 5, 34, 6, 87].forEach(obs.next);
+        obs.complete();
+    }
+
+}
+
+arrayObservable.subscribe(observer);
