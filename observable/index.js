@@ -10,18 +10,21 @@ const observer = {
     }
 }
 
-function startReceivingData(obs) {
-    let counts = 0;
-    const intervalId = setInterval(() => {
-        counts++;
+const observable = {
+    subscribe: function subscribe(obs) {
+        let counts = 0;
+        const intervalId = setInterval(() => {
+            counts++;
 
-        obs.next(counts);
+            obs.next(counts);
 
-        if (counts >= 5) {
-            clearInterval(intervalId);
-            obs.complete();
-        }
-    }, 300);
+            if (counts >= 5) {
+                clearInterval(intervalId);
+                obs.complete();
+            }
+        }, 300);
+    }
+
 }
 
-startReceivingData(observer);
+observable.subscribe(observer);
