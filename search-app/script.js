@@ -18,5 +18,6 @@ $(() => {
         .filter(text => text.length > 2)
         .debounceTime(300)
         .switchMap(getUsers)
+        .pluck('items')
         .subscribe((data) => console.log(data));
 })
