@@ -11,7 +11,7 @@ function errorCallback(err) {
 }
 
 function startReceivingData(next) {
-    [1, 2, 3, 4, 5].forEach(next);
+    document.addEventListener('click', next);
 }
 
 startReceivingData(nextCallback, errorCallback, completeCallback);
