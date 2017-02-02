@@ -11,8 +11,9 @@ $(() => {
     const stopClick$ = Rx.Observable.fromEvent($stopButton, 'click');
 
     const ticks$ = interval$.takeUntil(stopClick$);
+    const startTicks$ = startClick$.switchMap(() => ticks$);
 
-    ticks$
+    startTicks$
         .merge(toggleClick$)    
         .subscribe(() => {
             $greenLed.toggleClass('on');
