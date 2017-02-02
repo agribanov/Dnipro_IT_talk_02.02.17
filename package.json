@@ -1,0 +1,18 @@
+{
+  "name": "rxjs_ittalk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "observable": "node ./observable",
+    "search": "node ./node_modules/http-server/bin/http-server ./search-app -o",
+    "leds": "node ./node_modules/http-server/bin/http-server ./leds-app -o"
+  },
+  "author": "Aleksandr Gribanov",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^0.9.0",
+    "rxjs": "^5.1.0"
+  }
+}
