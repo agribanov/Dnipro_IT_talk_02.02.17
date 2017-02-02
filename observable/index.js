@@ -10,8 +10,8 @@ function errorCallback(err) {
     console.log('Error: ', err);
 }
 
-function startReceivingData(next) {
-    document.addEventListener('click', next);
+function startReceivingData(next, error) {
+    fetch('http://google.com').then(next, error);
 }
 
 startReceivingData(nextCallback, errorCallback, completeCallback);
