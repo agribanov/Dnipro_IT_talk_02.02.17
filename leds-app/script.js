@@ -1,17 +1,21 @@
 $(() => {
     const $greenLed = $('#greenLed');
     const $redLed = $('#redLed');
+    const $toggleButton = $('#toggleButton');
     
-    const interval$ = Rx.Observable.interval(300);
+    const interval$ = Rx.Observable.interval(2000);
+    const toggleClick$ = Rx.Observable.fromEvent($toggleButton, 'click');
 
-    interval$.subscribe(() => {
-        $greenLed.toggleClass('on');
+    interval$
+        .merge(toggleClick$)    
+        .subscribe(() => {
+            $greenLed.toggleClass('on');
     });
     
     interval$
         .delay(200)    
         .subscribe(() => {
-        $redLed.toggleClass('on');
+            $redLed.toggleClass('on');
     });
     
 })
