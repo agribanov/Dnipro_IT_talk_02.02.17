@@ -19,5 +19,7 @@ $(() => {
         .debounceTime(300)
         .switchMap(getUsers)
         .pluck('items')
-        .subscribe((data) => console.log(data));
+        .subscribe((data) => {
+            $list.html(data.map(user => '<li>' + user.login + '</li>').join(''));
+        });
 })
